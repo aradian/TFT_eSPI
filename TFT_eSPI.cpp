@@ -779,6 +779,10 @@ void TFT_eSPI::init(uint8_t tc)
     digitalWrite(TFT_BL, HIGH);
   #endif
 #endif
+
+#ifdef TOUCH_TSC2007
+  initTSC2007();
+#endif
 }
 
 
@@ -5549,6 +5553,10 @@ void TFT_eSPI::getSetup(setup_t &tft_settings)
 ////////////////////////////////////////////////////////////////////////////////////////
 #ifdef TOUCH_CS
   #include "Extensions/Touch.cpp"
+#endif
+
+#ifdef TOUCH_TSC2007
+  #include "Extensions/TouchTSC2007.cpp"
 #endif
 
 #include "Extensions/Button.cpp"

@@ -106,6 +106,10 @@
   #include "Processors/TFT_eSPI_Generic.h"
 #endif
 
+#ifdef TOUCH_TSC2007
+  #include <Adafruit_TSC2007.h>
+#endif
+
 /***************************************************************************************
 **                         Section 3: Interface setup
 ***************************************************************************************/
@@ -908,6 +912,10 @@ class TFT_eSPI : public Print { friend class TFT_eSprite; // Sprite class has ac
     #if !defined(DISABLE_ALL_LIBRARY_WARNINGS)
       #warning >>>>------>> TOUCH_CS pin not defined, TFT_eSPI touch functions will not be available!
     #endif
+#endif
+
+#ifdef TOUCH_TSC2007
+  #include "Extensions/TouchTSC2007.h"   // Loaded if TOUCH_TSC2007 is defined by user
 #endif
 
 // Load the Anti-aliased font extension
